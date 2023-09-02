@@ -1,0 +1,191 @@
+body {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  height: 100vh;
+  background-color: rgb(235, 190, 210);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.logo {
+  position: fixed;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.logo img {
+  max-width: 400px;
+  height: auto;
+  z-index: 1000;
+
+}
+
+.hamburger {
+  width: 40px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: fixed;
+  z-index: 1000;
+  top: 15px;
+  right: 10px;
+}
+
+.line {
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background-color: pink;
+  transition: background-color 0.3s ease;
+}
+
+.line:nth-child(1) {
+  background-color: #fdedf4;
+}
+
+.line:nth-child(2) {
+  background-color: #fbe0ec;
+}
+
+.line:nth-child(3) {
+  background-color: #ffd3e7;
+}
+
+@keyframes cycleColors {
+
+  0%,
+  100% {
+    background-color: #fdedf4;
+  }
+
+  33% {
+    background-color: #fbe0ec;
+  }
+
+  66% {
+    background-color: #ffd3e7;
+  }
+}
+
+.hamburger:hover .line:nth-child(1) {
+  animation: cycleColors 1.5s infinite;
+}
+
+.hamburger:hover .line:nth-child(2) {
+  animation: cycleColors 1.5s 0.5s infinite;
+}
+
+.hamburger:hover .line:nth-child(3) {
+  animation: cycleColors 1.5s 1s infinite;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 50px;
+  z-index: 900;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(235, 190, 210);
+
+}
+
+.menu-item {
+  font-size: 70px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #fff;
+  margin-bottom: -25px;
+}
+
+.menu-item:hover {
+  color: #aaa;
+}
+
+/* Update your styles.css with the following CSS */
+
+/* Update your styles.css with the following CSS */
+/* Update your styles.css with the following CSS */
+
+/* Update your styles.css with the following CSS */
+
+/* ... (other styles) ... */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  grid-auto-flow: dense;
+  /* Arrange items efficiently */
+}
+
+.thumbnail {
+  position: relative;
+  /* overflow: hidden; */
+  /* Remove this line */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.thumbnail img {
+  width: 100%;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+.thumbnail:hover img {
+  filter: brightness(70%);
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* transform: translate(-50%, -50%); */
+  /* Remove this line */
+  padding: 5px;
+  color: white;
+  font-size: 24px;
+  font-family: 'Mukta Vaani', sans-serif;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnail:hover .thumbnail-overlay {
+  opacity: 1;
+}
+
+/* ... (other styles) ... */
+
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    gap: 5px;
+    /* Adjust gap for mobile view */
+  }
+
+  .thumbnail {
+    flex: 1 1 100%;
+    /* Full width on mobile */
+  }
+}
