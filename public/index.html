@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;600&display=swap" rel="stylesheet">
   <!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
   <script src="/path/to/masonry.pkgd.min.js"></script> -->
 
@@ -17,22 +18,35 @@
 </head>
 
 <body id="top">
-  <div class="logo">
-    <a href="#top">
-      <img src="pettycash_websitetransparent2_white.png">
-    </a>
+  <div class="top-nav">
+    <div class="logo">
+      <a href="#top">
+        <img src="pettycash_websitetransparent2_white.png">
+      </a>
+    </div>
+    <div class="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
   </div>
-  <div id="gallery" class="gallery-grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'></div>
-  <div class="hamburger">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
+  <video id="background-video" autoplay loop muted poster="/projectImages/PETTYCASH_v4_16x9.mp4">
+    <source src="/projectImages/PETTYCASH_v4_16x9.mp4" type="video/mp4">
+  </video>
+  <!-- <div id="gallery" class="gallery-grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'></div> -->
 
   <div class="menu">
-    <a href="#work" class="menu-item">WORK</a>
-    <a href="#about" class="menu-item">ABOUT</a>
-    <a href="#contact" class="menu-item">CONTACT</a>
+    <a href="#work" class="menu-item" id="work">WORK</a>
+    <a href="#about" class="menu-item" id="about">ABOUT</a>
+    <a href="#contact" class="menu-item" id="contact">CONTACT</a>
+  </div>
+  <div class="aboutPC">
+    <div>
+      <h1>ABOUT</h1>
+      <p></p>
+    </div>
+
+
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
 
