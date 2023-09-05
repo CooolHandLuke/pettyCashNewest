@@ -8,6 +8,18 @@ body {
   overflow-x: hidden;
 }
 
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
 .logo {
   position: fixed;
   top: 5px;
@@ -15,7 +27,6 @@ body {
   transform: translateX(-50%);
   z-index: 1000;
 }
-
 .logo img {
   max-width: 400px;
   height: auto;
@@ -23,8 +34,24 @@ body {
 
 }
 
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  /* This ensures maximum spacing between logo and hamburger */
+  align-items: center;
+  /* This centers items vertically if they have different heights */
+  position: fixed;
+  top: 5px;
+  /* You can adjust as needed */
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  /* Gives a little space on the left and right */
+  z-index: 1000;
+}
+
 .hamburger {
-  width: 40px;
+  width: 80px;
   height: 20px;
   display: flex;
   flex-direction: column;
@@ -32,13 +59,13 @@ body {
   cursor: pointer;
   position: fixed;
   z-index: 1000;
-  top: 15px;
-  right: 10px;
+  top: 30px;
+  right: 20px;
 }
 
 .line {
   width: 100%;
-  height: 5px;
+  height: 4px;
   border-radius: 3px;
   background-color: pink;
   transition: background-color 0.3s ease;
@@ -90,31 +117,89 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  padding-top: 50px;
+  /* padding: 50px; */
   z-index: 900;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  /* transform: translateX(-50%); */
+  transition: transform 0.6s ease;
   display: none;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: rgb(235, 190, 210);
+}
 
+.menu.active {
+  display: flex;
+  transform: translateY(0);
 }
 
 .menu-item {
-  font-size: 70px;
+  font-size: 100px;
   text-decoration: none;
   font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Mukta Vaani', sans-serif;
   color: #fff;
-  margin-bottom: -25px;
+}
+
+#work {
+  margin-bottom: -100px;
+}
+
+#about {
+  margin-top: 0px;
+  margin-bottom: -100px;
+}
+
+#contact {
+  margin-bottom: -20px;
+  /* margin-top: 3px; */
 }
 
 .menu-item:hover {
-  color: #aaa;
+  color: #da4444;
 }
 
+.aboutPC {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* padding: 50px; */
+  z-index: 901;
+  left: 0;
+  /* transform: translateX(-50%); */
+  transition: transform 0.6s ease;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgb(235, 190, 210);
+}
+
+.aboutPC.active {
+  display: flex;
+  transform: translateY(0);
+}
+@media (max-width:420px) {
+  .menu-item {
+    font-size: 75px;
+  }
+    #work {
+      margin-bottom: -75px;
+    }
+  
+    #about {
+      margin-top: 0px;
+      margin-bottom: -75px;
+    }
+  
+    #contact {
+      margin-bottom: 0px;
+      /* margin-top: 3px; */
+    }
+}
 
 /* ... (other styles) ... */
 
@@ -181,5 +266,31 @@ body {
   .thumbnail {
     flex: 1 1 100%;
     /* Full width on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    max-width: 280px;
+        top: 15px;
+    /* or whatever size ensures it doesn't overlap with the hamburger */
+  }
+}
+  .hamburger {
+    width: 40px;
+    /* Adjust if needed */
+  }
+
+@media (max-width: 500px) {
+  .logo {
+    max-width: 280px;
+    top: 15px;
+    /* slight move to ensure spacing */
+  }
+  .hamburger {
+      width: 40px;
+      top: 30px;
+      right: 10px;
+    /* adjust as necessary */
   }
 }

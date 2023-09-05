@@ -13,6 +13,19 @@ function createThumbnail(shootId, thumbnailPath, creditsText) {
   gallery.appendChild(thumbnail);
 }
 
+$(document).ready(function () {
+  $(".hamburger").click(function () {
+    $(".menu").toggleClass("active");
+  });
+});
+
+$(document).ready(function () {
+  $("#about").click(function () {
+    $(".aboutPC").toggleClass("active");
+  });
+});
+
+
 // Fetch and display shoot thumbnails on the main page
 async function loadThumbnails() {
   try {
