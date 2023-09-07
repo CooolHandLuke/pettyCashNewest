@@ -1,8 +1,11 @@
 $(document).ready(function () {
+
   // Toggle the menu when the hamburger is clicked
   $(".hamburger").click(function () {
+    // If the aboutPC is active, remove it and show the logo
     if ($(".aboutPC").hasClass("active")) {
       $(".aboutPC").removeClass("active");
+      $(".top-nav .logo").show();
     } else if ($(".contactPC").hasClass("active")) {
       $(".contactPC").removeClass("active");
     }
@@ -14,14 +17,17 @@ $(document).ready(function () {
   $("#about").click(function () {
     $(".menu").removeClass("active");
     $(".aboutPC").addClass("active");
+    // If about is clicked, hide the logo
+    $(".top-nav .logo").hide();
   });
 
   $("#contact").click(function () {
     $(".menu").removeClass("active");
     $(".contactPC").addClass("active");
+    // If any other menu item is clicked, show the logo
+    $(".top-nav .logo").show();
   });
 });
-
 
 
 

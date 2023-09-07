@@ -26,8 +26,25 @@ body {
   transform: translateX(-50%);
   z-index: 1000;
 }
+
+.about-logo {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.about-logo img {
+  max-width: 280px;
+  height: auto;
+  z-index: 1000;
+
+}
+
+
 .logo img {
-  max-width: 400px;
+  max-width: 280px;
   height: auto;
   z-index: 1000;
 
@@ -180,12 +197,29 @@ body {
   .aboutPC {
     padding-left: 30px;
     padding-right: 30px;
+    padding-top: 75px;
+    text-align: center;
   }
 } 
+
+@media (max-width:1024px) {
+  #about-text {
+    width: 100%;
+  }
+
+  .aboutPC {
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 75px;
+    text-align: left;
+  }
+}
+
 
 .aboutPC.active {
   display: flex;
   transform: translateY(0);
+    overflow: auto;
 }
 
 @media (max-width:420px) {
