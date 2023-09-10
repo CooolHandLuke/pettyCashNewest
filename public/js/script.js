@@ -14,6 +14,12 @@ $(document).ready(function () {
   });
 
 
+  document.getElementById('background-video').onended = function () {
+    console.log("video")
+
+    this.play();
+  };
+
   $(".logo").click(function () {
     // If the aboutPC is active, remove it and show the logo
     if ($(".aboutPC").hasClass("active") || $(".menu").hasClass("active")) {
