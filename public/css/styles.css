@@ -130,10 +130,10 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
   width: 100vw;
   height: 100vh;
   z-index: 900;
-  left: 0;
   transition: transform 0.6s ease;
   display: none;
   flex-direction: column;
@@ -142,9 +142,13 @@ body {
   background-color: rgb(235, 190, 210);
 }
 
+#menu-select {
+  padding-bottom: 20px;
+}
+
 .menu.active {
   display: flex;
-  transform: translateY(0);
+  align-items:center;
 }
 
 .menu-item {
@@ -153,25 +157,29 @@ body {
   font-weight: bold;
   font-family: 'Mukta Vaani', sans-serif;
   color: #fff;
+  line-height: .7;
+  padding: 0 0;
+  display: block;
 }
 
-#work {
-  margin-bottom: -100px;
-}
 
-#about {
-  margin-top: 0px;
-  margin-bottom: -100px;
-}
 
-#contact {
-  margin-bottom: -20px;
-}
-
-.menu-item:hover {
+a:hover {
   color: #da4444;
 }
+/* 
+#about:hover {
+  color: #da4444 !important;
+}
 
+#contact:hover {
+  color:#da4444 !important;
+} */
+
+
+#contact {
+    margin-bottom: 40px;
+}
 .aboutPC {
   position: fixed;
   top: 0;
@@ -192,7 +200,8 @@ body {
 
 @media (max-width:420px) {
   #about-text {
-    width: 100%;
+    width: 80%;
+    padding-left: 20px;
   }
   .aboutPC {
     padding-left: 30px;
@@ -204,7 +213,8 @@ body {
 
 @media (max-width:1024px) {
   #about-text {
-    width: 100%;
+    width: 80%;
+    padding-left: 20px;
   }
 
   .aboutPC {
@@ -219,25 +229,14 @@ body {
 .aboutPC.active {
   display: flex;
   transform: translateY(0);
-    overflow: auto;
+  overflow: auto;
 }
 
 @media (max-width:420px) {
   .menu-item {
     font-size: 75px;
   }
-  #work {
-    margin-bottom: -75px;
-  }
   
-  #about {
-    margin-top: 0px;
-    margin-bottom: -75px;
-  }
-  
-  #contact {
-    margin-bottom: 0px;
-  }
 }
 
 .client-list {
@@ -297,12 +296,13 @@ body {
 .contactPC.active {
   display: flex;
   transform: translateY(0);
+  text-align: left;
 }
 
 .address p {
   font-family: "Mukta Vaani", "san-serif";
   font-weight: lighter;
-  font-size: 14px;
+  font-size: 20px;
   color: #fff;
   margin: 0px;
 }
@@ -310,22 +310,22 @@ body {
 .address a {
   font-family: "Mukta Vaani", "san-serif";
   font-weight: lighter;
-  font-size: 14px;
+  font-size: 20px;
   color: #fff;
 }
 
 .personal h2 {
   font-family: "Mukta Vaani", "san-serif";
-  font-weight:normal;
-  font-size: 18px;
+  font-weight:800;
+  font-size: 24px;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: -10px;
 }
 
 .personal p {
   font-family: "Mukta Vaani", "san-serif";
   font-weight: lighter;
-  font-size: 14px;
+  font-size: 20px;
   color: #fff;
   margin: 0px;
 }
@@ -333,16 +333,30 @@ body {
 .personal a {
   font-family: "Mukta Vaani", "san-serif";
   font-weight: lighter;
-  font-size: 14px;
+  font-size: 20px;
   color: #fff;
+}
+
+.personal-email {
+  margin-top: -10px;
 }
 
 #contact-text {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: left;
   height: 100vh;
   flex-direction: column;
+  padding-right: 60px;
+}
+
+@media screen and (max-width: 420px) {
+  #contact-text {
+      padding-right: 100px;
+      overflow-y: scroll;
+      padding-top: 60px;
+}
 }
 
 
@@ -350,16 +364,17 @@ body {
 h1 {
   font-family: "Mukta Vaani";
   font-weight:bolder;
-  font-size: 36pt;
+  font-size: 40pt;
   color: #fff;
+  text-align:left ;
 }
 
 p {
-    font-family: "Mukta Vaani", "san-serif";
-      font-weight:lighter;
-      font-size: 16pt;
-      color: #fff;
-      line-height: 1;
+  font-family: "Mukta Vaani", "san-serif";
+  font-weight:lighter;
+  font-size: 16pt;
+  color: #fff;
+  line-height: 1;
 }
 
 

@@ -13,6 +13,30 @@ $(document).ready(function () {
     $(".menu").toggleClass("active");
   });
 
+
+  $(".logo").click(function () {
+    // If the aboutPC is active, remove it and show the logo
+    if ($(".aboutPC").hasClass("active") || $(".menu").hasClass("active")) {
+      $(".menu").removeClass("active")
+      $(".aboutPC").removeClass("active");
+      $(".top-nav .logo").show();
+    } else if ($(".contactPC").hasClass("active")) {
+      $(".contactPC").removeClass("active");
+    }
+    // Toggle the menu
+  });
+
+  $(".about-logo").click(function () {
+    // If the aboutPC is active, remove it and show the logo
+    if ($(".aboutPC").hasClass("active")) {
+      $(".aboutPC").removeClass("active");
+      $(".top-nav .logo").show();
+    } else if ($(".contactPC").hasClass("active")) {
+      $(".contactPC").removeClass("active");
+    }
+    // Toggle the menu
+  });
+
   // Show aboutPC section when the "ABOUT" link is clicked
   $("#about").click(function () {
     $(".menu").removeClass("active");
