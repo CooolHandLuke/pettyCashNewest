@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node",
+    "start": "node index.js",
     "watch": "nodemon --ext *"
   },
   "repository": {
