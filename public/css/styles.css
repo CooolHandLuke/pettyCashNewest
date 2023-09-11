@@ -299,6 +299,10 @@ a:hover {
   text-align: left;
 }
 
+.address {
+  padding-right: 60px;
+}
+
 .address p {
   font-family: "Mukta Vaani", "san-serif";
   font-weight: lighter;
