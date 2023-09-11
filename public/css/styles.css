@@ -291,6 +291,7 @@ a:hover {
   flex-direction: column;
   justify-content: left;
   background-color: rgb(235, 190, 210);
+  overflow-y: auto;
 }
 
 .contactPC.active {
