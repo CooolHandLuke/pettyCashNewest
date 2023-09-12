@@ -8,6 +8,7 @@ body {
 }
 
 #background-video {
+  display: block;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
@@ -17,6 +18,40 @@ body {
   top: 0;
   bottom: 0;
   z-index: -1;
+}
+
+#background-video-mobile {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+@media only screen and (min-width: 768px) {
+  #background-video-mobile {
+    display: none;
+  }
+
+  #background-video {
+    display: block;
+  }
+}
+
+/* For mobile phones */
+@media only screen and (max-width: 767px) {
+  #background-video {
+    display: none;
+  }
+
+  #background-video-mobile {
+    display: block;
+  }
 }
 
 .logo {
@@ -146,7 +181,7 @@ body {
   padding-bottom: 20px;
 }
 
-.menu.active {
+.menu.active { 
   display: flex;
   align-items:center;
 }
@@ -167,14 +202,7 @@ body {
 a:hover {
   color: #da4444;
 }
-/* 
-#about:hover {
-  color: #da4444 !important;
-}
 
-#contact:hover {
-  color:#da4444 !important;
-} */
 
 
 #contact {
