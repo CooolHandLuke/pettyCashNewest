@@ -282,9 +282,10 @@ a:hover {
 
 .client-column {
   width: 33%;
+  list-style: none;
 }
 
-.client-column p {
+.client-column li {
   margin: 0 0 5px 0;
   font-family: "Mukta Vaani", "san-serif";
   font-weight: lighter;
