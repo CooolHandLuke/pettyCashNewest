@@ -206,7 +206,7 @@ a:hover {
 
 
 #contact {
-    margin-bottom: 70px;
+    margin-bottom: 100px;
 }
 .aboutPC {
   position: fixed;
@@ -363,11 +363,21 @@ a:hover {
   margin: 0px;
 }
 
-.personal a {
+#email {
   font-family: "Mukta Vaani", "san-serif";
   font-weight: 800;
   font-size: 24px;
   color: #fff;
+}
+a {
+  color: #fff;
+}
+
+.personal a {
+  text-decoration: none;
+  font-family: "Mukta Vaani", "san-serif";
+  font-weight: bolder;
+  font-size: 20px;
   color: #fff;
 }
 
