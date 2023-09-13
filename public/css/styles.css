@@ -280,15 +280,16 @@ IS THE MENU TOO LOW? CHANGE THIS MARGIN-BOTTOM VALUE */
   /* justify-content:flex-end; */
   justify-items: left;
   /* width: 40%; */
-  margin-top: 20px;
+  /* margin-top: 220px; */
   columns: 2;
   column-gap:normal;
-  margin-bottom: 100px;
+  margin-bottom: 200px;
 }
 
 .client-column {
   /* width: 33%; */
   list-style: none;
+  margin-top: 0px;
   
 }
 
