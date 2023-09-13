@@ -209,10 +209,11 @@ a:hover {
   color: #da4444;
 }
 
-
+/* 
+IS THE MENU TOO LOW? CHANGE THIS MARGIN-BOTTOM VALUE */
 
 #contact {
-    margin-bottom: 100px;
+    margin-bottom:6vh;
 }
 .aboutPC {
   position: fixed;
@@ -273,15 +274,16 @@ a:hover {
   
 }
 
-.client-list {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+.client-list ul {
+  /* display:table-column; */
+  /* justify-content:flex-end; */
+  justify-items: left;
+  width: 40%;
   margin-top: 20px;
 }
 
 .client-column {
-  width: 33%;
+  /* width: 33%; */
   list-style: none;
 }
 
@@ -292,7 +294,8 @@ a:hover {
   font-size: 15pt;
   color: #fff;
   line-height: 1;
-  padding-right: 20px;
+  margin-left: 0px;
+  /* padding-right: 20px; */
   
 }
 
@@ -321,12 +324,11 @@ a:hover {
   height: 100vh;
   z-index: 901;
   padding-left: 100px;
-  transition: transform 0.6s ease;
   display: none;
   flex-direction: column;
   justify-content: left;
   background-color: rgb(235, 190, 210);
-  overflow-y: auto;
+  overflow-y:scroll;
 }
 
 .contactPC.active {
@@ -394,24 +396,39 @@ a {
 }
 
 #contact-text {
+  margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: left;
   height: 100vh;
+  width: 100;
   flex-direction: column;
   padding-right: 60px;
 }
 
-@media screen and (max-width: 420px) {
+/* @media screen and (max-width: 420px) {
   #contact-text {
-      padding-right: 100px;
+      padding-left: 5px;
+      padding-right: 0px;
       overflow-y: scroll;
-      padding-top: 60px;
+      padding-top: 100px;
 }
+} */
+
+/* .contact-logo {
+  position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
 }
 
-
+.contact-logo img {
+  max-width: 100px;
+    height: auto;
+    z-index: 1000;
+} */
 
 h1 {
   font-family: "Mukta Vaani";
