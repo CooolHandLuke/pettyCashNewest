@@ -215,6 +215,7 @@ IS THE MENU TOO LOW? CHANGE THIS MARGIN-BOTTOM VALUE */
 #contact {
     margin-bottom:10vh;
 }
+
 .aboutPC {
   position: fixed;
   top: 0;
@@ -264,7 +265,7 @@ IS THE MENU TOO LOW? CHANGE THIS MARGIN-BOTTOM VALUE */
 .aboutPC.active {
   display: flex;
   transform: translateY(0);
-  overflow: auto;
+  overflow:scroll;
 }
 
 @media (max-width:420px) {
@@ -278,13 +279,17 @@ IS THE MENU TOO LOW? CHANGE THIS MARGIN-BOTTOM VALUE */
   /* display:table-column; */
   /* justify-content:flex-end; */
   justify-items: left;
-  width: 40%;
+  /* width: 40%; */
   margin-top: 20px;
+  columns: 2;
+  column-gap:normal;
+  margin-bottom: 100px;
 }
 
 .client-column {
   /* width: 33%; */
   list-style: none;
+  
 }
 
 .client-column li {
@@ -294,7 +299,7 @@ IS THE MENU TOO LOW? CHANGE THIS MARGIN-BOTTOM VALUE */
   font-size: 15pt;
   color: #fff;
   line-height: 1;
-  margin-left: 0px;
+  margin-left: -40px;
   /* padding-right: 20px; */
   
 }
@@ -309,7 +314,11 @@ IS THE MENU TOO LOW? CHANGE THIS MARGIN-BOTTOM VALUE */
   }
 }
 
-
+@media screen and (max-width: 425px) {
+  .client-column li {
+    font-size: 13pt;
+  }
+}
 
 
 
