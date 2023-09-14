@@ -242,7 +242,7 @@ IS THE MENU TOO LOW? CHANGE THIS MARGIN-BOTTOM VALUE */
     text-align: center;
   }
 
-  #contact {
+  .contact {
     margin-bottom: 20vh;
   }
 } 
@@ -273,6 +273,13 @@ IS THE MENU TOO LOW? CHANGE THIS MARGIN-BOTTOM VALUE */
     font-size: 85px;
   }
   
+}
+
+@media (max-width:320px) {
+  .menu-item {
+    font-size: 75px;
+  }
+
 }
 
 .client-list ul {
