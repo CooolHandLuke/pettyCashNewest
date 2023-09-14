@@ -1,7 +1,7 @@
 body {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   background-color: rgb(235, 190, 210);
   position: relative;
   overflow-x: hidden;
@@ -242,7 +242,7 @@ IS THE MENU TOO LOW? CHANGE THIS MARGIN-BOTTOM VALUE */
     text-align: center;
   }
 
-  .contact {
+  #contact {
     margin-bottom: 20vh;
   }
 } 
