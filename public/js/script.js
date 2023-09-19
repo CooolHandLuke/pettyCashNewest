@@ -59,7 +59,23 @@ $(document).ready(function () {
   });
 });
 
+function setVhHeight() {
+  const viewportHeight = window.innerHeight;
 
+  // Get all elements with the class "vh-element"
+  const vhElements = document.querySelectorAll(".vh-element");
+
+  vhElements.forEach(element => {
+    // Get the desired vh value from the data attribute
+    const vhValue = parseFloat(element.getAttribute('data-vh'));
+
+    // Convert the vh value to pixels
+    const pixelValue = (vhValue / 100) * viewportHeight;
+
+    // Set the height of the element
+    element.style.height = `${pixelValue}px`;
+  });
+}
 
 
 

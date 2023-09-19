@@ -33,7 +33,11 @@ html, body {
   z-index: -1;
 }
 
-
+.menu-item a {
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+}
 
 .logo {
   position: fixed;
@@ -166,12 +170,6 @@ html, body {
   color: #fff;
   padding: 0 0;
   display: block;
-}
-
-.menu-item a {
-  text-decoration: none;
-  display: inline-block;
-  overflow: hidden;
 }
 
 a:hover {
@@ -422,14 +420,6 @@ p {
     padding-top: 75px;
   }
 
-  .menu-item {
-    font-size: 85px;
-  }
-
-  /* #contact {
-    margin-bottom: 30%;
-  } */
-
   .client-column li {
     font-size: 13pt;
   }
@@ -438,9 +428,6 @@ p {
     columns: 1;
   }
 }
-
-
-
 
 
 
