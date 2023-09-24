@@ -13,6 +13,21 @@ $(document).ready(function () {
     $(".menu").toggleClass("active");
   });
 
+  $("#background-video").click(function () {
+    $(".menu").toggleClass("active");
+  });
+
+  $("#background-video-mobile").click(function () {
+    $(".menu").toggleClass("active");
+  });
+
+
+  $(".menu").click(function () {
+    if ($(".menu").hasClass("active")) {
+      $(".menu").removeClass("active");
+    }
+  });
+
 
   document.getElementById('background-video').onended = function () {
     console.log("video")
