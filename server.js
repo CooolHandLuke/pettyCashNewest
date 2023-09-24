@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
-const favicon = require('express-favicon');
+// const favicon = require('express-favicon');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -9,7 +9,7 @@ const imagesDir = path.join(__dirname, 'projectImages');
 
 app.use('/projectImages', express.static(imagesDir));
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html', 'js'] }));
-app.use(favicon(__dirname + '/public/pettycash_websitetransparent2_white.png'));
+// app.use(favicon(__dirname + '/images/pettycash_websitetransparent2_white.png'));
 
 app.listen(PORT || 3000, () => {
   console.log(`Server is running on port ${PORT}`);
