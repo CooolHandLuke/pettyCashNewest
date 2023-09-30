@@ -11,7 +11,7 @@ app.use('/projectImages', express.static(imagesDir));
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html', 'js'] }));
 // app.use(favicon(__dirname + '/images/pettycash_websitetransparent2_white.png'));
 
-app.listen(PORT || 3000, () => {
+app.listen(PORT || 4000, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
