@@ -1,15 +1,14 @@
 const express = require('express');
-const fs = require('fs').promises;
+const fs = require('fs');
 const path = require('path');
-// const favicon = require('express-favicon');
+const fsp = fs.promises; // Use this for promise-based operations
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 const imagesDir = path.join(__dirname, 'projectImages');
 
 app.use('/projectImages', express.static(imagesDir));
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html', 'js'] }));
-// app.use(favicon(__dirname + '/images/pettycash_websitetransparent2_white.png'));
 
 app.listen(PORT || 4000, () => {
   console.log(`Server is running on port ${PORT}`);
@@ -20,54 +19,56 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get('/shoot/:shootId', async (req, res) => {
-  const shootId = req.params.shootId;
-  const shootDir = path.join(imagesDir, shootId);
+app.get('/api/shoot/:id/images', (req, res) => {
+  const shootId = req.params.id;
+  const projectImagesDir = path.join(__dirname, 'public', 'projectImages');
+  const shootFolder = `shoot${shootId}`;
 
-  try {
-    const creditsPath = path.join(shootDir, 'credits.txt');
-    const creditsText = await fs.readFile(creditsPath, 'utf-8');
-
-    // Collect image/video paths in the shoot directory
-    const mediaFiles = await fs.readdir(shootDir);
-    const mediaPaths = mediaFiles.filter(file => !file.includes('credits.txt'));
-
-    res.render('shoot', { shootId, mediaPaths, creditsText });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error loading shoot gallery');
+  // Ensure the shoot folder exists
+  if (!fs.existsSync(path.join(projectImagesDir, shootFolder))) {
+    return res.status(404).json({ error: 'Shoot not found' });
   }
+
+  // Read all image files in the shoot folder (excluding 'image1.jpg')
+  const images = fs.readdirSync(path.join(projectImagesDir, shootFolder))
+    .filter(file => file.endsWith('.jpg') && file !== 'image1.jpg')
+    .map(image => path.join('/projectImages', shootFolder, image));
+
+  // Send the images array as JSON to the client
+  res.json(images);
 });
 
-app.get('/shoots', async (req, res) => {
-  try {
-    const shootFolders = await fs.readdir(imagesDir);
-    const shootDataList = [];
+// Define the API endpoint to get the posts
+app.get('/api/posts', (req, res) => {
+  const projectImagesDir = path.join(__dirname, 'public', 'projectImages');
 
-    for (const shootFolder of shootFolders) {
-      const shootDir = path.join(imagesDir, shootFolder);
+  fsp.readdir(projectImagesDir)
+    .then(shootFolder => {
+      return Promise.all(
+        shootFolder
+          .filter(folder => fs.statSync(path.join(projectImagesDir, folder)).isDirectory())
+          .map((folder, index) => {
+            const imagePath = path.join('/public/projectImages', folder, 'image1.jpg');
+            const creditsPath = path.join(projectImagesDir, folder, 'credits.txt');
 
-      try {
-        const creditsPath = path.join(shootDir, 'credits.txt');
-        const creditsText = await fs.readFile(creditsPath, 'utf-8');
-
-        const mediaFiles = await fs.readdir(shootDir);
-        const mediaPaths = mediaFiles.filter(file => !file.includes('credits.txt'));
-
-        shootDataList.push({
-          id: shootFolder,
-          thumbnailPath: path.join('/projectImages', shootFolder, mediaPaths[0]),
-          firstLineText: creditsText.split('\n')[0], // Extract the first line from credits.txt
-        });
-      } catch (error) {
-        console.error(`Error reading data for ${shootFolder}: ${error}`);
-      }
-    }
-
-    res.json(shootDataList);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error fetching shoot data');
-  }
+            return fs.readFile(creditsPath, 'utf-8')
+              .then(title => {
+                const dateString = `${index + 1 < 10 ? '0' : ''}${index + 1}/10/2021`;
+                return {
+                  id: index + 1,
+                  title: title.trim(),
+                  date: dateString,
+                  image: imagePath,
+                };
+              });
+          })
+      );
+    })
+    .then(posts => res.json(posts))
+    .catch(err => {
+      console.error("Error fetching posts:", err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    });
 });
+
 

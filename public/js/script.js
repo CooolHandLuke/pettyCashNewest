@@ -72,7 +72,68 @@ $(document).ready(function () {
     // If any other menu item is clicked, show the logo
     $(".top-nav .logo").show();
   });
+
+  $("#work").click(function () {
+    $(".menu").removeClass("active");
+    $(".container").addClass("active");
+    // If any other menu item is clicked, show the logo
+    $(".top-nav .logo").show();
+  });
 });
+
+// Initially, the posts array is empty
+let posts = [];
+
+function handlePostClick(postId) {
+  fetch(`/api/shoot/${postId}/images`)
+    .then(response => response.json())
+    .then(images => {
+      const imagePosts = images.map(image => ({
+        image,
+        title: '', // Set title appropriately if available
+      }));
+      generateMasonryGrid(Math.min(4, imagePosts.length), imagePosts);
+      backButton.style.display = 'block'; // Show back button
+
+    })
+    .catch(error => {
+      console.error('Error fetching additional images:', error);
+    });
+}
+
+backButton.addEventListener('click', () => {
+  // On back button click, regenerate the main gallery and hide the back button
+  if (window.innerWidth < 600) {
+    generateMasonryGrid(1, posts);
+  } else if (window.innerWidth >= 600 && window.innerWidth < 1000) {
+    generateMasonryGrid(2, posts);
+  } else {
+    generateMasonryGrid(4, posts);
+  }
+  backButton.style.display = 'none'; // Hide back button
+});
+
+// Fetch the posts array from the server
+fetch('/api/posts')
+  .then(response => response.json())
+  .then(data => {
+    // Update the posts array with the data from the server
+    posts = data;
+
+    console.log(posts);
+
+    // Now that we have the posts, generate the initial masonry grid
+    if (window.innerWidth < 600) {
+      generateMasonryGrid(1, posts);
+    } else if (window.innerWidth >= 600 && window.innerWidth < 1000) {
+      generateMasonryGrid(2, posts);
+    } else {
+      generateMasonryGrid(4, posts);
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching posts:', error);
+  });
 
 function setVhHeight() {
   const viewportHeight = window.innerHeight;
@@ -137,7 +198,7 @@ function generateMasonryGrid(columns, posts) {
 let previousScreenSize = window.innerWidth;
 
 window.addEventListener('resize', () => {
-  imageIndex = 0;
+  let imageIndex = 0;
   if (window.innerWidth < 600 && previousScreenSize >= 600) {
     generateMasonryGrid(1, posts);
   } else if (window.innerWidth >= 600 && window.innerWidth < 1000 && (previousScreenSize < 600 || previousScreenSize >= 1000)) {
@@ -158,51 +219,3 @@ if (previousScreenSize < 600) {
   generateMasonryGrid(4, posts)
 }
 
-
-// function createThumbnail(shootId, thumbnailPath, creditsText) {
-//   const gallery = document.getElementById('gallery');
-//   const thumbnail = document.createElement('div');
-//   thumbnail.classList.add('thumbnail');
-//   thumbnail.innerHTML = `
-//     <a href="/shoot/${shootId}">
-//       <img src="${thumbnailPath}" alt="Thumbnail">
-//     </a>
-//     <div class="thumbnail-overlay">${creditsText}</div>
-//   `;
-//   gallery.appendChild(thumbnail);
-// }
-
-
-
-
-// Fetch and display shoot thumbnails on the main page
-// async function loadThumbnails() {
-//   try {
-//     const response = await fetch('/shoots');
-//     const shootDataList = await response.json();
-
-//     shootDataList.forEach(shootData => {
-//       createThumbnail(shootData.id, shootData.thumbnailPath, shootData.firstLineText);
-//     });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// Call the function to load thumbnails when the page loads
-// window.addEventListener('DOMContentLoaded', () => {
-//   loadThumbnails();
-
-//   // Initialize Masonry layout after thumbnails are loaded
-//   initMasonry();
-// });
-
-// // Function to initialize Masonry
-// function initMasonry() {
-//   const gallery = document.getElementById('gallery');
-//   new Masonry(gallery, {
-//     itemSelector: '.thumbnail',
-//     gutter: 10, // Adjust the gutter between items
-//     percentPosition: true, // Use percentage-based sizing for items
-//   });
-// }
