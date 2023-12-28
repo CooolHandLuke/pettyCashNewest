@@ -1,10 +1,11 @@
-html, body {
+html,
+body {
   display: flex;
   justify-content: center;
   height: 100%;
-  background-color: rgb(235, 190, 210);
+  background-color: #ea7499ff;
   position: relative;
-  overflow:auto;
+  overflow: auto;
 }
 
 #background-video {
@@ -59,15 +60,12 @@ html, body {
   max-width: 280px;
   height: auto;
   z-index: 1000;
-
 }
-
 
 .logo img {
   max-width: 280px;
   height: auto;
   z-index: 1000;
-
 }
 
 .top-nav {
@@ -98,7 +96,6 @@ html, body {
   right: 20px;
 }
 
-
 .line {
   width: 100%;
   height: 4px;
@@ -120,7 +117,6 @@ html, body {
 }
 
 @keyframes cycleColors {
-
   0%,
   100% {
     background-color: #fdedf4;
@@ -159,14 +155,14 @@ html, body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background-color: rgb(235, 190, 210);
+  background-color: #ea7499ff;
 }
 
 .menu-item {
-  line-height: .7;
+  line-height: 0.7;
   font-size: 100px;
   font-weight: bold;
-  font-family: 'Mukta Vaani', sans-serif;
+  font-family: "Mukta Vaani", sans-serif;
   color: #fff;
   padding: 0 0;
   display: block;
@@ -182,30 +178,29 @@ a:hover {
   width: 100%;
   height: 100%;
   z-index: 901;
-  padding-left: 100px;  
+  padding-left: 100px;
   transition: transform 0.6s ease;
   display: none;
   flex-direction: column;
-  justify-content:left;
-  background-color: rgb(235, 190, 210);
+  justify-content: left;
+  background-color: #ea7499ff;
 }
 
 #about-text {
-  width: 40%;
+  width: 50%;
+  padding-top: 75px;
 }
-
 
 .client-list ul {
   justify-items: left;
-  columns: 2;
-  column-gap:normal;
+  columns: 3;
+  column-gap: normal;
   margin-bottom: 200px;
 }
 
 .client-column {
   list-style: none;
   margin-top: 0px;
-  
 }
 
 .client-column li {
@@ -228,8 +223,17 @@ a:hover {
   display: none;
   flex-direction: column;
   justify-content: left;
-  background-color: rgb(235, 190, 210);
-  overflow-y:scroll;
+  background-color: #ea7499ff;
+  overflow-y: scroll;
+}
+
+.social {
+  text-decoration: none;
+  font-family: "Mukta Vaani", "san-serif";
+  font-weight: 800;
+  font-size: 24px;
+  color: #fff;
+  text-align: left !important;
 }
 
 .menu.active {
@@ -269,7 +273,7 @@ a:hover {
 
 .personal h2 {
   font-family: "Mukta Vaani", "san-serif";
-  font-weight:800;
+  font-weight: 800;
   font-size: 24px;
   color: #fff;
   margin-bottom: -10px;
@@ -320,26 +324,25 @@ a {
 
 h1 {
   font-family: "Mukta Vaani";
-  font-weight:bolder;
+  font-weight: bolder;
   font-size: 40pt;
   color: #fff;
-  text-align:left ;
+  text-align: left;
 }
 
 p {
   font-family: "Mukta Vaani", "san-serif";
-  font-weight:lighter;
+  font-weight: lighter;
   font-size: 16pt;
   color: #fff;
   line-height: 1;
 }
 
-
 /* RESPONSIVE DESIGN */
 
-@media (max-width:1024px) {
+@media (max-width: 1024px) {
   #about-text {
-    width: 80%;
+    /* width: 80%; */
     padding-left: 20px;
   }
 
@@ -350,8 +353,6 @@ p {
     text-align: left;
   }
 }
-
-
 
 @media only screen and (min-width: 768px) {
   #background-video-mobile {
@@ -377,8 +378,6 @@ p {
   }
 }
 
-
-
 /* For mobile background video */
 @media (max-width: 767px) {
   #background-video {
@@ -389,8 +388,6 @@ p {
     display: block;
   }
 }
-
-
 
 @media (max-width: 500px) {
   .logo {
@@ -407,9 +404,7 @@ p {
   }
 }
 
-
-
-@media (max-width:425px) {
+@media (max-width: 425px) {
   #about-text {
     width: 80%;
     padding-left: 20px;
@@ -429,17 +424,20 @@ p {
   }
 }
 
+@media (max-width: 650px) {
+  .client-list ul {
+    columns: 1;
+  }
+}
 
-
-@media (max-width:375px) {
+@media (max-width: 375px) {
   .menu-item {
     font-size: 75px;
   }
-
 }
 
-@media (max-width:320px) {
-  .logo img{
+@media (max-width: 320px) {
+  .logo img {
     max-width: 200px;
   }
 
@@ -447,4 +445,3 @@ p {
     font-size: 35px;
   }
 }
-
