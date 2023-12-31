@@ -159,17 +159,160 @@ body {
 }
 
 .menu-item {
-  line-height: 0.7;
+  line-height: 0.9;
   font-size: 100px;
   font-weight: bold;
-  font-family: "Mukta Vaani", sans-serif;
+  font-family: "Lexend Exa", sans-serif;
   color: #fff;
   padding: 0 0;
   display: block;
 }
 
 a:hover {
-  color: #da4444;
+  color: #ef1a26;
+}
+
+.social {
+  font-family: "Lexend Exa", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+  text-align: left !important;
+  text-decoration-line: none;
+}
+
+.menu.active {
+  display: flex;
+  align-content: center;
+}
+
+a {
+  color: #fff;
+  margin: 0%;
+}
+
+h1 {
+  font-family: "Lexend Exa", sans-serif;
+  font-weight: 500;
+  font-size: 30pt;
+  color: #fff;
+  text-align: left;
+}
+
+p {
+  font-family: "Lexend Exa", sans-serif;
+  font-weight: 300;
+  font-size: 16pt;
+  color: #fff;
+  line-height: 1;
+}
+
+/* /////////////////////////// */
+/*     CONTACT PAGE STYLING    */
+/* /////////////////////////// */
+
+.contactPC {
+  display: flex; /* Changed from none to flex to enable flexbox layout */
+  align-items: center; /* Align the children vertically */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 901;
+  /* padding: 100px;  */
+  display: none;
+  flex-direction: row; /* Align children horizontally */
+  justify-content: center; /* Center the children */
+  /* flex-direction: column;
+  justify-content: left; */
+  background-color: #ea7499ff;
+  overflow-y: auto;
+}
+
+#contact-text {
+  flex: 0 0 40%;
+  padding: 0 5% 0% 0%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  text-align: left; /* Align the text to the left */
+  align-items: flex-start;
+}
+
+#contact-img {
+  flex: 0 0 60%; /* Assign 60% width of the parent container */
+  padding-left: 5%; /* Adds whitespace to the left side of the image */
+  padding-top: 10%; /* Adds whitespace to the top of the image */
+  padding-bottom: 10%;
+  /* margin-left: 15px; */
+  box-sizing: border-box;
+  display: flex; /* Make it a flex container */
+  justify-content: center; /* Center the image horizontally */
+}
+
+#contact-img img {
+  height: auto;
+  max-width: 90%; /* Set a max-width less than 100% to allow for padding */
+  margin-left: auto; /* Automatically adjust the left margin */
+  margin-right: auto; /* Automatically adjust the right margin */
+}
+
+#contact-text h1,
+#contact-text .client-column {
+  padding-right: 5%; /* Apply the same padding to the right for consistency */
+}
+
+.contactPC.active {
+  display: flex;
+  transform: translateY(0);
+  text-align: left;
+}
+
+#contact-image {
+  height: 50%;
+}
+
+.contact-column {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 30px;
+  width: auto;
+  list-style: none;
+}
+
+.contact-column li {
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 12pt;
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 5px;
+  white-space: nowrap;
+}
+
+/* /////////////////////////// */
+/*     ABOUT PAGE STYLING      */
+/* /////////////////////////// */
+
+#about-image {
+  width: 40%; /* Takes up 40% of the container's width */
+  position: sticky;
+  right: 0;
+  top: 20%;
+  height: 100vh; /* Full viewport height */
+  justify-content: left;
+  padding-top: 150px;
+}
+
+#about-image img {
+  width: 75%;
+  height: auto;
+}
+
+.aboutPC.active {
+  display: flex;
+  transform: translateY(0);
+  overflow: scroll;
 }
 
 .aboutPC {
@@ -181,178 +324,55 @@ a:hover {
   padding-left: 100px;
   transition: transform 0.6s ease;
   display: none;
-  flex-direction: column;
+  flex-direction: row-reverse;
   justify-content: left;
   background-color: #ea7499ff;
 }
 
 #about-text {
-  width: 40%;
-  padding-top: 75px;
+  width: 60%;
+  padding-top: 5%;
+  overflow-y: scroll;
+}
+#about-text::-webkit-scrollbar {
+  display: none;
+}
+.client-list {
+  text-align: left;
+  font-size: 0;
+  margin-top: 20px;
 }
 
-.client-list ul {
-  justify-items: left;
-  columns: 3;
-  column-gap: normal;
-  margin-bottom: 200px;
+.services-list {
+  text-align: left;
+  font-size: 0;
+  margin-top: 20px;
+  padding-bottom: 20%;
 }
 
 .client-column {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 30px;
+  width: auto;
+  font-size: 12pt;
   list-style: none;
-  margin-top: 0px;
+  padding: 0;
+}
+
+.client-column:last-child {
+  margin-right: 0;
 }
 
 .client-column li {
-  margin: 0 0 5px 0;
-  font-family: "Mukta Vaani", "san-serif";
-  font-weight: lighter;
-  font-size: 15pt;
+  font-family: "Lexend Exa", sans-serif;
+  font-weight: 300;
   color: #fff;
-  line-height: 1;
-  margin-left: -40px;
-}
-
-.contactPC {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 901;
-  padding-left: 100px;
-  display: none;
-  flex-direction: column;
-  justify-content: left;
-  background-color: #ea7499ff;
-  overflow-y: scroll;
-}
-
-.social {
-  text-decoration: none;
-  font-family: "Mukta Vaani", "san-serif";
-  font-weight: 800;
-  font-size: 24px;
-  color: #fff;
-  text-align: left !important;
-}
-
-.menu.active {
-  display: flex;
-  align-content: center;
-}
-
-.contactPC.active {
-  display: flex;
-  transform: translateY(0);
-  text-align: left;
-}
-
-.aboutPC.active {
-  display: flex;
-  transform: translateY(0);
-  overflow: scroll;
-}
-.address {
-  padding-right: 60px;
-}
-
-.address p {
-  font-family: "Mukta Vaani", "san-serif";
-  font-weight: lighter;
-  font-size: 20px;
-  color: #fff;
-  margin: 0px;
-}
-
-.address a {
-  font-family: "Mukta Vaani", "san-serif";
-  font-weight: lighter;
-  font-size: 20px;
-  color: #fff;
-}
-
-.personal h2 {
-  font-family: "Mukta Vaani", "san-serif";
-  font-weight: 800;
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: -10px;
-}
-
-.personal p {
-  font-family: "Mukta Vaani", "san-serif";
-  font-weight: lighter;
-  font-size: 20px;
-  color: #fff;
-  margin: 0px;
-}
-
-#email {
-  font-family: "Mukta Vaani", "san-serif";
-  font-weight: 800;
-  font-size: 24px;
-  color: #fff;
-}
-a {
-  color: #fff;
-  margin: 0%;
-}
-
-.personal a {
-  text-decoration: none;
-  font-family: "Mukta Vaani", "san-serif";
-  font-weight: bolder;
-  font-size: 20px;
-  color: #fff;
-}
-
-.personal-email {
-  margin-top: -10px;
-}
-
-#contact-text {
-  margin-top: 100px;
-  display: flex;
-  align-items: center;
-  text-align: left;
-  height: 100%;
-  width: 100;
-  flex-direction: column;
-  padding-right: 60px;
-  margin-right: 30px;
-}
-
-h1 {
-  font-family: "Mukta Vaani";
-  font-weight: bolder;
-  font-size: 40pt;
-  color: #fff;
-  text-align: left;
-}
-
-p {
-  font-family: "Mukta Vaani", "san-serif";
-  font-weight: lighter;
-  font-size: 16pt;
-  color: #fff;
-  line-height: 1;
+  margin-bottom: 5px;
+  white-space: nowrap;
 }
 
 /* RESPONSIVE DESIGN */
-
-@media (max-width: 1024px) {
-  #about-text {
-    /* width: 80%; */
-    padding-left: 20px;
-  }
-
-  .aboutPC {
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 75px;
-    text-align: left;
-  }
-}
 
 @media only screen and (min-width: 768px) {
   #background-video-mobile {
@@ -367,14 +387,28 @@ p {
     max-width: 280px;
     top: 15px;
   }
+}
 
-  .client-list {
-    flex-direction: column;
+@media (max-width: 1275px) {
+  .client-column {
+    display: block;
+    margin-right: 0;
+    margin: 0 0 0 0;
   }
 
-  .client-column {
-    width: 100%;
-    margin-bottom: 20px;
+  .client-column:last-child {
+    margin-bottom: 0;
+  }
+
+  .client-column li {
+    display: block;
+    width: auto;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .client-column li:last-child {
+    margin-right: 0;
   }
 }
 
@@ -393,7 +427,6 @@ p {
   .logo {
     max-width: 280px;
     top: 15px;
-    /* slight move to ensure spacing */
   }
 
   .hamburger {
@@ -401,32 +434,6 @@ p {
     top: 30px;
     right: 10px;
     /* adjust as necessary */
-  }
-}
-
-@media (max-width: 430px) {
-  #about-text {
-    width: 80%;
-    padding-left: 20px;
-  }
-  .aboutPC {
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 75px;
-  }
-
-  .client-column li {
-    font-size: 13pt;
-  }
-
-  .client-list ul {
-    columns: 1;
-  }
-}
-
-@media (max-width: 650px) {
-  .client-list ul {
-    columns: 1;
   }
 }
 
@@ -445,3 +452,76 @@ p {
     font-size: 35px;
   }
 }
+
+/* Your existing styles here... */
+
+/* Media query for screens with 1024px width or less */
+@media (max-width: 1024px) {
+  .contactPC {
+    flex-direction: column; /* Stack flex children vertically */
+    padding: 0; /* Adjust or remove padding as needed */
+    align-items: flex-start; /* Align children to the start (left) */
+  }
+
+  #contact-img {
+    width: 100%; /* The image will take up the full width */
+    flex: 0 0 auto; /* Adjust flex basis to auto so it sizes according to the image size */
+    padding: 5% 5% 0 5%; /* Add padding to all sides except bottom */
+    order: 2; /* Move the image below the text */
+  }
+
+  #contact-img img {
+    width: 90%; /* Adjust the width as needed to add padding */
+    margin: 0 auto; /* Center the image */
+    display: block;
+  }
+
+  #contact-text {
+    flex: 0 0 auto; /* Adjust flex basis to auto so it sizes according to its content */
+    width: 100%; /* The text will take up the full width */
+    padding: 5%; /* Add padding as needed */
+    order: 1; /* Ensure the text is above the image */
+  }
+
+  /* Adjust .client-column if necessary */
+  .contact-column {
+    display: block; /* Change to block to stack list items */
+    width: 100%; /* List takes full width */
+    padding: 0 5%; /* Add horizontal padding for the list */
+  }
+
+  #contact-img {
+    order: 2; /* Keep the image below the contact information */
+    width: 100%; /* Take up the full width */
+    padding: 0 5%; /* Add padding on both sides */
+  }
+
+  #contact-img img {
+    width: 100%; /* Allow the image to fill the space, padding is accounted for in the container */
+    height: auto;
+  }
+
+  #contact-text {
+    order: 1; /* Contact information comes first */
+    width: 100%; /* Take up the full width */
+    /* padding: 0 5%; Maintain padding consistency */
+  }
+
+  /* Update styles for .social links if necessary */
+}
+
+@media (max-width: 1024px) {
+  #about-text {
+    /* width: 80%; */
+    padding-left: 20px;
+  }
+
+  .aboutPC {
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 75px;
+    text-align: left;
+  }
+}
+
+/* Your existing styles can remain unchanged */
