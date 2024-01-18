@@ -194,17 +194,19 @@ a {
 h1 {
   font-family: "Lexend Exa", sans-serif;
   font-weight: 500;
-  font-size: 30pt;
+  font-size: clamp(35px, 1.1vw, 40px);
   color: #fff;
   text-align: left;
+  margin: 0 0 0 0;
 }
 
 p {
   font-family: "Lexend Exa", sans-serif;
   font-weight: 300;
-  font-size: 16pt;
+  font-size: clamp(16px, 1.4vw, 40px);
   color: #fff;
-  line-height: 1;
+  margin-top: 8px;
+  margin-right: 3vw;
 }
 
 /* /////////////////////////// */
@@ -283,7 +285,7 @@ p {
 
 .contact-column li {
   font-family: "Lexend Exa", sans-serif;
-  font-size: 12pt;
+  font-size: 2vw;
   font-weight: 300;
   color: #fff;
   margin-bottom: 5px;
@@ -297,15 +299,11 @@ p {
 #about-image {
   width: 40%; /* Takes up 40% of the container's width */
   position: sticky;
-  right: 0;
-  top: 20%;
-  height: 100vh; /* Full viewport height */
-  justify-content: left;
-  padding-top: 150px;
+  padding-top: 12vw;
 }
 
 #about-image img {
-  width: 75%;
+  width: 35vw;
   height: auto;
 }
 
@@ -321,41 +319,66 @@ p {
   width: 100%;
   height: 100%;
   z-index: 901;
-  padding-left: 100px;
-  transition: transform 0.6s ease;
+  padding-left: 7vw;
   display: none;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: left;
   background-color: #ea7499ff;
 }
 
 #about-text {
-  width: 60%;
-  padding-top: 5%;
+  width: 58%;
+  padding-top: 11.4vw;
   overflow-y: scroll;
 }
 #about-text::-webkit-scrollbar {
   display: none;
 }
+
 .client-list {
   text-align: left;
-  font-size: 0;
-  margin-top: 20px;
+  padding-top: 2.4vw;
+}
+
+.client-list h1 {
+  padding-top: 0.1vw;
 }
 
 .services-list {
   text-align: left;
   font-size: 0;
-  margin-top: 20px;
   padding-bottom: 20%;
+  margin-top: 3vh;
+}
+
+.services-column {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 7.6vw;
+  margin-top: 2.5vw;
+  width: auto;
+  list-style: none;
+  padding: 0;
+}
+
+.services-column:last-child {
+  margin-right: 0;
+}
+
+.services-column li {
+  font-family: "Lexend Exa", sans-serif;
+  font-weight: 300;
+  color: #fff;
+  font-size: clamp(10px, 1.07vw, 40px);
+  white-space: nowrap;
 }
 
 .client-column {
   display: inline-block;
   vertical-align: top;
-  margin-right: 30px;
+  margin-right: 2.1vw;
+  margin-top: 2.5vw;
   width: auto;
-  font-size: 12pt;
   list-style: none;
   padding: 0;
 }
@@ -368,7 +391,7 @@ p {
   font-family: "Lexend Exa", sans-serif;
   font-weight: 300;
   color: #fff;
-  margin-bottom: 5px;
+  font-size: clamp(10px, 1.07vw, 40px);
   white-space: nowrap;
 }
 
@@ -389,7 +412,7 @@ p {
   }
 }
 
-@media (max-width: 1275px) {
+@media (max-width: 1000px) {
   .client-column {
     display: block;
     margin-right: 0;
@@ -408,6 +431,27 @@ p {
   }
 
   .client-column li:last-child {
+    margin-right: 0;
+  }
+
+  .services-column {
+    display: block;
+    margin-right: 0;
+    margin: 0 0 0 0;
+  }
+
+  .services-column:last-child {
+    margin-bottom: 0;
+  }
+
+  .services-column li {
+    display: block;
+    width: auto;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .services-column li:last-child {
     margin-right: 0;
   }
 }
@@ -456,7 +500,7 @@ p {
 /* Your existing styles here... */
 
 /* Media query for screens with 1024px width or less */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .contactPC {
     flex-direction: column; /* Stack flex children vertically */
     padding: 0; /* Adjust or remove padding as needed */
@@ -510,18 +554,57 @@ p {
   /* Update styles for .social links if necessary */
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 430px) {
+  /* Styles for the about text container */
   #about-text {
-    /* width: 80%; */
-    padding-left: 20px;
+    width: 90%; /* Adjust width as needed */
+    margin: 0 auto 20px; /* Center the content and add space before the image */
+    padding: 0 20px; /* Adjust padding for aesthetics */
+    overflow-y: auto; /* Allow vertical scrolling within the text container */
   }
 
+  h1 {
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+  }
+  /* Ensure the image is part of the normal document flow */
+  #about-image {
+    width: 100%; /* Image takes the full width of the screen */
+    display: block; /* Ensure it is a block element */
+    padding: 0; /* No padding */
+    order: 2; /* Makes sure that the image comes after the text in the flow */
+  }
+
+  /* Styles for the image within the about image container */
+  #about-image img {
+    width: 80%; /* Adjust the image width as per your preference */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image */
+    display: block; /* Make sure the image is a block-level element */
+  }
+
+  /* Only display the overlay when .aboutPC is active */
+  .aboutPC.active {
+    display: block; /* Show the .aboutPC when active */
+    position: fixed; /* Fixed to stay in place */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    bottom: 0; /* Align to the bottom */
+    z-index: 100; /* Ensure it's above other content */
+    background-color: #ea7499ff; /* Background color */
+    overflow-y: auto; /* Allow scrolling for the entire container */
+    padding: 20px; /* Padding for aesthetics */
+    text-align: left; /* Text alignment */
+  }
+
+  /* Remove the fixed positioning and other styles for the non-active state */
   .aboutPC {
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 75px;
-    text-align: left;
+    display: none; /* Hide the .aboutPC when not active */
+    position: static; /* Normal flow */
+    width: auto; /* Default width */
+    height: auto; /* Default height */
+    z-index: auto; /* Default stacking order */
+    overflow: hidden; /* No scrolling when not active */
   }
 }
-
-/* Your existing styles can remain unchanged */
