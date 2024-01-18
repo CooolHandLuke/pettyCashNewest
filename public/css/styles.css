@@ -214,14 +214,14 @@ p {
 /* /////////////////////////// */
 
 .contactPC {
-  display: flex; /* Changed from none to flex to enable flexbox layout */
-  align-items: center; /* Align the children vertically */
+  display: flex;
+  align-items: center;
   position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
   z-index: 901;
-  /* padding: 100px;  */
+
   display: none;
   flex-direction: row; /* Align children horizontally */
   justify-content: center; /* Center the children */
@@ -243,7 +243,7 @@ p {
 }
 
 #contact-img {
-  flex: 0 0 60%; /* Assign 60% width of the parent container */
+  flex: 0 0 80%; /* Assign 60% width of the parent container */
   padding-left: 5%; /* Adds whitespace to the left side of the image */
   padding-top: 10%; /* Adds whitespace to the top of the image */
   padding-bottom: 10%;
@@ -254,6 +254,7 @@ p {
 }
 
 #contact-img img {
+  object-fit: fill;
   height: auto;
   max-width: 90%; /* Set a max-width less than 100% to allow for padding */
   margin-left: auto; /* Automatically adjust the left margin */
@@ -554,7 +555,7 @@ p {
   /* Update styles for .social links if necessary */
 }
 
-@media (max-width: 430px) {
+@media (max-width: px) {
   /* Styles for the about text container */
   #about-text {
     width: 90%; /* Adjust width as needed */
