@@ -1,18 +1,16 @@
+function updateLogo() {
+  if ($(".aboutPC").hasClass("active") || $(".contactPC").hasClass("active")) {
+    $(".logo img").attr("src", "pettycash_websitetransparent2_white.png");
+    $(".logo").css("top", "20%"); // Move the logo to the top when active
+
+  } else {
+    $(".logo img").attr("src", "pettycash_websitetransparent2.png");
+    $(".logo").css("top", "45%"); // Revert the logo to the original position
+  }
+}
+
 $(document).ready(function () {
-
-  // Toggle the menu when the hamburger is clicked
-  $(".hamburger").click(function () {
-    // If the aboutPC is active, remove it and show the logo
-    if ($(".aboutPC").hasClass("active")) {
-      $(".aboutPC").removeClass("active");
-      $(".top-nav .logo").show();
-    } else if ($(".contactPC").hasClass("active")) {
-      $(".contactPC").removeClass("active");
-    }
-    // Toggle the menu
-    $(".menu").toggleClass("active");
-  });
-
+  updateLogo();
   $("#background-video").click(function () {
     $(".menu").toggleClass("active");
   });
@@ -41,10 +39,17 @@ $(document).ready(function () {
       $(".menu").removeClass("active")
       $(".aboutPC").removeClass("active");
       $(".top-nav .logo").show();
+      $("#top-nav").attr("background-color", "#ea7499ff")
     } else if ($(".contactPC").hasClass("active")) {
       $(".contactPC").removeClass("active");
     }
     // Toggle the menu
+  });
+
+  $(".logo").click(function () {
+    $(".aboutPC").removeClass("active");
+    $(".contactPC").removeClass("active");
+    updateLogo(); // Update the logo
   });
 
   $(".about-logo").click(function () {
@@ -64,14 +69,45 @@ $(document).ready(function () {
     $(".aboutPC").addClass("active");
     // If about is clicked, hide the logo
     $(".top-nav .logo").hide();
+    updateLogo(); // Update the logo
+
   });
 
   $("#contact").click(function () {
+    if ($(".aboutPC").hasClass("active")) {
+      $(".aboutPC").removeClass("active"); // Deactivate aboutPC if it's active
+    }
     $(".menu").removeClass("active");
     $(".contactPC").addClass("active");
-    // If any other menu item is clicked, show the logo
     $(".top-nav .logo").show();
+    updateLogo(); // Update the logo
+
   });
+});
+$(window).resize(function () {
+  updateLogo(); // Call on window resize
+});
+
+
+$("#about").click(function () {
+  if ($(".contactPC").hasClass("active")) {
+    $(".contactPC").removeClass("active"); // Deactivate contactPC if it's active
+  }
+  $(".menu").removeClass("active");
+  $(".aboutPC").toggleClass("active"); // Toggle aboutPC
+  $(".top-nav .logo").hide();
+  updateLogo(); // Update the logo
+});
+
+// Show contactPC section when the "CONTACT" link is clicked
+$("#contact").click(function () {
+  if ($(".aboutPC").hasClass("active")) {
+    $(".aboutPC").removeClass("active"); // Deactivate aboutPC if it's active
+  }
+  $(".menu").removeClass("active");
+  $(".contactPC").toggleClass("active"); // Toggle contactPC
+  $(".top-nav .logo").show();
+  updateLogo(); // Update the logo
 });
 
 function setVhHeight() {
@@ -92,53 +128,3 @@ function setVhHeight() {
   });
 }
 
-
-
-
-// function createThumbnail(shootId, thumbnailPath, creditsText) {
-//   const gallery = document.getElementById('gallery');
-//   const thumbnail = document.createElement('div');
-//   thumbnail.classList.add('thumbnail');
-//   thumbnail.innerHTML = `
-//     <a href="/shoot/${shootId}">
-//       <img src="${thumbnailPath}" alt="Thumbnail">
-//     </a>
-//     <div class="thumbnail-overlay">${creditsText}</div>
-//   `;
-//   gallery.appendChild(thumbnail);
-// }
-
-
-
-
-// Fetch and display shoot thumbnails on the main page
-// async function loadThumbnails() {
-//   try {
-//     const response = await fetch('/shoots');
-//     const shootDataList = await response.json();
-
-//     shootDataList.forEach(shootData => {
-//       createThumbnail(shootData.id, shootData.thumbnailPath, shootData.firstLineText);
-//     });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// Call the function to load thumbnails when the page loads
-// window.addEventListener('DOMContentLoaded', () => {
-//   loadThumbnails();
-
-//   // Initialize Masonry layout after thumbnails are loaded
-//   initMasonry();
-// });
-
-// // Function to initialize Masonry
-// function initMasonry() {
-//   const gallery = document.getElementById('gallery');
-//   new Masonry(gallery, {
-//     itemSelector: '.thumbnail',
-//     gutter: 10, // Adjust the gutter between items
-//     percentPosition: true, // Use percentage-based sizing for items
-//   });
-// }

@@ -34,138 +34,54 @@ body {
   z-index: -1;
 }
 
-.menu-item a {
-  text-decoration: none;
-  display: inline-block;
-  overflow: hidden;
-}
-
 .logo {
   position: fixed;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-}
-
-.about-logo {
-  position: fixed;
-  top: 50px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-}
-
-.about-logo img {
-  max-width: 280px;
-  height: auto;
-  z-index: 1000;
+  top: 45%;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  z-index: 2001;
 }
 
 .logo img {
-  max-width: 280px;
+  /* margin-top: 16em; */
+  max-width: 20em;
   height: auto;
-  z-index: 1000;
+}
+
+nav {
+  width: 100%;
+  height: 10em;
 }
 
 .top-nav {
   display: flex;
-  justify-content: space-between;
-  /* This ensures maximum spacing between logo and hamburger */
-  align-items: center;
-  /* This centers items vertically if they have different heights */
   position: fixed;
-  top: 5px;
-  /* You can adjust as needed */
   left: 0;
   right: 0;
-  padding: 0 20px;
-  z-index: 1000;
-}
-
-.hamburger {
-  width: 40px;
-  height: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  position: fixed;
-  z-index: 1000;
-  top: 30px;
-  right: 20px;
-}
-
-.line {
-  width: 100%;
-  height: 4px;
-  border-radius: 3px;
-  background-color: pink;
-  transition: background-color 0.3s ease;
-}
-
-.line:nth-child(1) {
-  background-color: #fdedf4;
-}
-
-.line:nth-child(2) {
-  background-color: #fbe0ec;
-}
-
-.line:nth-child(3) {
-  background-color: #ffd3e7;
-}
-
-@keyframes cycleColors {
-  0%,
-  100% {
-    background-color: #fdedf4;
-  }
-
-  33% {
-    background-color: #fbe0ec;
-  }
-
-  66% {
-    background-color: #ffd3e7;
-  }
-}
-
-.hamburger:hover .line:nth-child(1) {
-  animation: cycleColors 1.5s infinite;
-}
-
-.hamburger:hover .line:nth-child(2) {
-  animation: cycleColors 1.5s 0.5s infinite;
-}
-
-.hamburger:hover .line:nth-child(3) {
-  animation: cycleColors 1.5s 1s infinite;
+  flex-direction: row-reverse;
+  z-index: 2000;
 }
 
 .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 900;
-  display: none;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  background-color: #ea7499ff;
+  flex-direction: row;
+  text-decoration: none;
+  padding-top: 1em;
+  padding-right: 3em;
 }
 
 .menu-item {
-  line-height: 0.9;
-  font-size: 100px;
-  font-weight: bold;
   font-family: "Lexend Exa", sans-serif;
   color: #fff;
-  padding: 0 0;
-  display: block;
+  text-decoration: none;
+  padding-left: 1em;
+
+  /* display: block; */
+}
+
+.menu-item a {
+  text-decoration: none;
+  display: flex;
+  overflow: hidden;
 }
 
 a:hover {
@@ -194,10 +110,9 @@ a {
 h1 {
   font-family: "Lexend Exa", sans-serif;
   font-weight: 500;
-  font-size: clamp(35px, 1.1vw, 40px);
+  font-size: clamp(50px, 1.1vw, 100px);
   color: #fff;
   text-align: left;
-  margin: 0 0 0 0;
 }
 
 p {
@@ -223,73 +138,64 @@ p {
   z-index: 901;
 
   display: none;
-  flex-direction: row; /* Align children horizontally */
-  justify-content: center; /* Center the children */
-  /* flex-direction: column;
-  justify-content: left; */
+  flex-direction: row;
+  justify-content: center;
   background-color: #ea7499ff;
   overflow-y: auto;
 }
 
-#contact-text {
+/* #contact-text {
   flex: 0 0 40%;
   padding: 0 5% 0% 0%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   margin-right: 30px;
-  text-align: left; /* Align the text to the left */
+  text-align: left;
   align-items: flex-start;
-}
+} */
 
-#contact-img {
-  flex: 0 0 80%; /* Assign 60% width of the parent container */
-  padding-left: 5%; /* Adds whitespace to the left side of the image */
-  padding-top: 10%; /* Adds whitespace to the top of the image */
+/* #contact-img {
+  flex: 0 0 80%;
+  padding-left: 5%;
+  padding-top: 10%;
   padding-bottom: 10%;
-  /* margin-left: 15px; */
   box-sizing: border-box;
-  display: flex; /* Make it a flex container */
-  justify-content: center; /* Center the image horizontally */
-}
+  display: flex;
+  justify-content: center; */
+/* } */
 
 #contact-img img {
   object-fit: fill;
   height: auto;
-  max-width: 90%; /* Set a max-width less than 100% to allow for padding */
-  margin-left: auto; /* Automatically adjust the left margin */
-  margin-right: auto; /* Automatically adjust the right margin */
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 #contact-text h1,
 #contact-text .client-column {
-  padding-right: 5%; /* Apply the same padding to the right for consistency */
+  padding-right: 5%;
 }
 
 .contactPC.active {
   display: flex;
   transform: translateY(0);
+  flex-direction: row;
   text-align: left;
-}
-
-#contact-image {
-  height: 50%;
+  align-items: center;
 }
 
 .contact-column {
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 30px;
-  width: auto;
   list-style: none;
 }
 
 .contact-column li {
   font-family: "Lexend Exa", sans-serif;
-  font-size: 2vw;
+  font-size: 1em;
   font-weight: 300;
   color: #fff;
-  margin-bottom: 5px;
   white-space: nowrap;
 }
 
@@ -298,7 +204,7 @@ p {
 /* /////////////////////////// */
 
 #about-image {
-  width: 40%; /* Takes up 40% of the container's width */
+  width: 40%;
   position: sticky;
   padding-top: 12vw;
 }
@@ -406,11 +312,6 @@ p {
   #background-video {
     display: block;
   }
-
-  .logo img {
-    max-width: 280px;
-    top: 15px;
-  }
 }
 
 @media (max-width: 1000px) {
@@ -468,26 +369,6 @@ p {
   }
 }
 
-@media (max-width: 500px) {
-  .logo {
-    max-width: 280px;
-    top: 15px;
-  }
-
-  .hamburger {
-    width: 40px;
-    top: 30px;
-    right: 10px;
-    /* adjust as necessary */
-  }
-}
-
-@media (max-width: 375px) {
-  .menu-item {
-    font-size: 75px;
-  }
-}
-
 @media (max-width: 320px) {
   .logo img {
     max-width: 200px;
@@ -498,114 +379,127 @@ p {
   }
 }
 
-/* Your existing styles here... */
-
-/* Media query for screens with 1024px width or less */
-@media (max-width: 768px) {
-  .contactPC {
-    flex-direction: column; /* Stack flex children vertically */
-    padding: 0; /* Adjust or remove padding as needed */
-    align-items: flex-start; /* Align children to the start (left) */
-  }
-
-  #contact-img {
-    width: 100%; /* The image will take up the full width */
-    flex: 0 0 auto; /* Adjust flex basis to auto so it sizes according to the image size */
-    padding: 5% 5% 0 5%; /* Add padding to all sides except bottom */
-    order: 2; /* Move the image below the text */
-  }
-
-  #contact-img img {
-    width: 90%; /* Adjust the width as needed to add padding */
-    margin: 0 auto; /* Center the image */
-    display: block;
-  }
-
-  #contact-text {
-    flex: 0 0 auto; /* Adjust flex basis to auto so it sizes according to its content */
-    width: 100%; /* The text will take up the full width */
-    padding: 5%; /* Add padding as needed */
-    order: 1; /* Ensure the text is above the image */
-  }
-
-  /* Adjust .client-column if necessary */
-  .contact-column {
-    display: block; /* Change to block to stack list items */
-    width: 100%; /* List takes full width */
-    padding: 0 5%; /* Add horizontal padding for the list */
-  }
-
-  #contact-img {
-    order: 2; /* Keep the image below the contact information */
-    width: 100%; /* Take up the full width */
-    padding: 0 5%; /* Add padding on both sides */
-  }
-
-  #contact-img img {
-    width: 100%; /* Allow the image to fill the space, padding is accounted for in the container */
-    height: auto;
-  }
-
-  #contact-text {
-    order: 1; /* Contact information comes first */
-    width: 100%; /* Take up the full width */
-    /* padding: 0 5%; Maintain padding consistency */
-  }
-
-  /* Update styles for .social links if necessary */
+#contact-img {
+  width: 60%;
+  flex: 0 0 auto;
+  /* padding: 5% 5% 0 5%; */
+  order: 1;
 }
 
-@media (max-width: px) {
-  /* Styles for the about text container */
+/* #contact-text {
+  flex: 0 0 auto;
+  width: 40%;
+  padding: 5%;
+  order: 1;
+} */
+/* 
+.contact-column {
+  display: block;
+  width: 100%;
+  padding: 0 5%;
+} */
+
+#contact-text {
+  order: 2;
+  width: 40%;
+}
+
+@media (min-width: 1001px) {
+  .logo {
+    top: 5%;
+  }
+}
+
+/* /////////////////////////// */
+/*       MOBILE STYLING        */
+/* /////////////////////////// */
+
+@media (max-width: 1000px) {
+  .top-nav {
+    display: flex;
+    position: fixed;
+    justify-content: space-evenly;
+    z-index: 2000;
+  }
+
+  .menu-item {
+    padding-top: 0.5em;
+    padding-right: 0em;
+    display: none; /* Hide menu items */
+  }
+
+  .contactPC.active {
+    display: flex;
+    transform: translateY(0);
+    flex-direction: column-reverse;
+    text-align: left;
+    align-items: center;
+  }
+
+  .contact-column {
+    padding-left: 0px;
+  }
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu {
+    padding-right: 0em;
+  }
+
+  .logo {
+    top: 30%;
+    position: fixed;
+  }
+
   #about-text {
-    width: 90%; /* Adjust width as needed */
-    margin: 0 auto 20px; /* Center the content and add space before the image */
-    padding: 0 20px; /* Adjust padding for aesthetics */
-    overflow-y: auto; /* Allow vertical scrolling within the text container */
+    width: 90%;
+    margin: 15em auto 20px;
+    padding: 0 20px;
+    overflow-y: auto;
   }
 
   h1 {
     margin-top: 0.67em;
     margin-bottom: 0.67em;
   }
-  /* Ensure the image is part of the normal document flow */
+
   #about-image {
-    width: 100%; /* Image takes the full width of the screen */
-    display: block; /* Ensure it is a block element */
-    padding: 0; /* No padding */
-    order: 2; /* Makes sure that the image comes after the text in the flow */
+    width: 100%;
+    display: block;
+    padding: 0;
+    order: 2;
   }
 
-  /* Styles for the image within the about image container */
   #about-image img {
-    width: 80%; /* Adjust the image width as per your preference */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0 auto; /* Center the image */
-    display: block; /* Make sure the image is a block-level element */
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
   }
 
-  /* Only display the overlay when .aboutPC is active */
   .aboutPC.active {
-    display: block; /* Show the .aboutPC when active */
-    position: fixed; /* Fixed to stay in place */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
-    right: 0; /* Align to the right */
-    bottom: 0; /* Align to the bottom */
-    z-index: 100; /* Ensure it's above other content */
-    background-color: #ea7499ff; /* Background color */
-    overflow-y: auto; /* Allow scrolling for the entire container */
-    padding: 20px; /* Padding for aesthetics */
-    text-align: left; /* Text alignment */
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: #ea7499ff;
+    overflow-y: auto;
+    padding: 20px;
+    text-align: left;
   }
 
-  /* Remove the fixed positioning and other styles for the non-active state */
   .aboutPC {
-    display: none; /* Hide the .aboutPC when not active */
-    position: static; /* Normal flow */
-    width: auto; /* Default width */
-    height: auto; /* Default height */
-    z-index: auto; /* Default stacking order */
-    overflow: hidden; /* No scrolling when not active */
+    display: none;
+    position: static;
+    width: auto;
+    height: auto;
+    z-index: auto;
+    overflow: hidden;
   }
 }
