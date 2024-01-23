@@ -44,7 +44,7 @@ body {
 
 .logo img {
   /* margin-top: 16em; */
-  max-width: 28em;
+  max-width: 20em;
   height: auto;
 }
 
@@ -65,7 +65,7 @@ nav {
 .menu {
   flex-direction: row;
   text-decoration: none;
-  padding-top: 1.5em;
+  padding-top: 1em;
   padding-right: 3em;
 }
 
@@ -91,7 +91,7 @@ a:hover {
 .social {
   font-family: "Lexend Exa", sans-serif;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 20px;
   color: #fff;
   text-align: left !important;
   text-decoration-line: none;
@@ -110,16 +110,15 @@ a {
 h1 {
   font-family: "Lexend Exa", sans-serif;
   font-weight: 500;
-  font-size: 2em;
+  font-size: clamp(50px, 1.1vw, 100px);
   color: #fff;
   text-align: left;
-  margin-top: 0;
 }
 
 p {
   font-family: "Lexend Exa", sans-serif;
   font-weight: 300;
-  font-size: 1em;
+  font-size: clamp(16px, 1.4vw, 40px);
   color: #fff;
   margin-top: 8px;
   margin-right: 3vw;
@@ -238,7 +237,6 @@ p {
   width: 58%;
   padding-top: 11.4vw;
   overflow-y: scroll;
-  
 }
 #about-text::-webkit-scrollbar {
   display: none;
@@ -255,6 +253,7 @@ p {
 
 .services-list {
   text-align: left;
+  font-size: 0;
   padding-bottom: 20%;
   margin-top: 3vh;
 }
@@ -277,15 +276,14 @@ p {
   font-family: "Lexend Exa", sans-serif;
   font-weight: 300;
   color: #fff;
-  font-size: .8em;
+  font-size: clamp(10px, 1.07vw, 40px);
   white-space: nowrap;
-  line-height: 1.5em;
 }
 
 .client-column {
   display: inline-block;
   vertical-align: top;
-  margin-right: 3vw;
+  margin-right: 2.1vw;
   margin-top: 2.5vw;
   width: auto;
   list-style: none;
@@ -300,7 +298,7 @@ p {
   font-family: "Lexend Exa", sans-serif;
   font-weight: 300;
   color: #fff;
-  font-size: .8em;
+  font-size: clamp(10px, 1.07vw, 40px);
   white-space: nowrap;
 }
 

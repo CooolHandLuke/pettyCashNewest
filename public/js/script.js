@@ -1,16 +1,29 @@
 function updateLogo() {
-  if ($(".aboutPC").hasClass("active") || $(".contactPC").hasClass("active")) {
-    $(".logo img").attr("src", "pettycash_websitetransparent2_white.png");
-    $(".logo").css("top", "20%"); // Move the logo to the top when active
-
+  if (window.innerWidth < 1000) {
+    if ($(".aboutPC").hasClass("active") || $(".contactPC").hasClass("active")) {
+      // If about or contact is active and width is less than 1000px
+      $(".logo img").attr("src", "pettycash_websitetransparent2_white.png");
+      $(".logo").css("top", "15%"); // Adjust as needed for the active state in narrow screens
+    } else {
+      // If neither about nor contact is active and width is less than 1000px
+      $(".logo img").attr("src", "pettycash_websitetransparent2.png");
+      $(".logo").css("top", "50%"); // Adjust as needed for the inactive state in narrow screens
+    }
   } else {
-    $(".logo img").attr("src", "pettycash_websitetransparent2.png");
-    $(".logo").css("top", "45%"); // Revert the logo to the original position
+    // For screens wider than 1000px (you can keep your existing logic or adjust as needed)
+    if ($(".aboutPC").hasClass("active") || $(".contactPC").hasClass("active")) {
+      $(".logo img").attr("src", "pettycash_websitetransparent2_white.png");
+      $(".logo").css("top", "5%");
+    } else {
+      $(".logo img").attr("src", "pettycash_websitetransparent2.png");
+      $(".logo").css("top", "45%");
+    }
   }
 }
 
 $(document).ready(function () {
-  updateLogo();
+
+
   $("#background-video").click(function () {
     $(".menu").toggleClass("active");
   });
@@ -83,6 +96,14 @@ $(document).ready(function () {
     updateLogo(); // Update the logo
 
   });
+  $(window).resize(function () {
+    updateLogo();
+  });
+
+  // Call when about or contact sections are toggled
+
+
+  updateLogo();
 });
 $(window).resize(function () {
   updateLogo(); // Call on window resize
