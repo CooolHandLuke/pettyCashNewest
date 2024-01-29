@@ -187,30 +187,37 @@ a:hover {
 }
 
 #about-text {
-  width: 40%;
+  width: 50%;
   padding-top: 75px;
 }
 
-.client-list ul {
-  justify-items: left;
-  columns: 3;
-  column-gap: normal;
-  margin-bottom: 200px;
+.client-list {
+  text-align: left;
+  padding-top: 2.4vw;
+  /* margin-bottom: 200px; */
 }
 
 .client-column {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5vw;
+  margin-top: 2.5vw;
+  width: auto;
   list-style: none;
-  margin-top: 0px;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.client-column:last-child {
+  margin-right: 0;
 }
 
 .client-column li {
-  margin: 0 0 5px 0;
   font-family: "Mukta Vaani", "san-serif";
-  font-weight: lighter;
-  font-size: 15pt;
+  font-weight: 300;
   color: #fff;
-  line-height: 1;
-  margin-left: -40px;
+  font-size: clamp(10px, 1.07vw, 40px);
+  white-space: nowrap;
 }
 
 .contactPC {
@@ -231,7 +238,7 @@ a:hover {
   text-decoration: none;
   font-family: "Mukta Vaani", "san-serif";
   font-weight: 800;
-  font-size: 24px;
+  font-size: 20px;
   color: #fff;
   text-align: left !important;
 }
@@ -252,7 +259,19 @@ a:hover {
   transform: translateY(0);
   overflow: scroll;
 }
-.address {
+.contact-column {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-column li {
+  font-family: "Mukta Vaani", sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  color: #fff;
+  white-space: nowrap;
+}
+/* .address {
   padding-right: 60px;
 }
 
@@ -285,7 +304,7 @@ a:hover {
   font-size: 20px;
   color: #fff;
   margin: 0px;
-}
+} */
 
 #email {
   font-family: "Mukta Vaani", "san-serif";
@@ -352,6 +371,27 @@ p {
     padding-top: 75px;
     text-align: left;
   }
+
+  .client-column {
+    display: block;
+    margin-right: 0;
+    margin: 0 0 0 0;
+  }
+
+  .client-column:last-child {
+    margin-bottom: 0;
+  }
+
+  .client-column li {
+    display: block;
+    width: auto;
+    margin-right: 0;
+    margin-bottom: 0px;
+  }
+
+  .client-column li:last-child {
+    margin-right: 0;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -373,7 +413,7 @@ p {
   }
 
   .client-column {
-    width: 100%;
+    /* width: 100%; */
     margin-bottom: 20px;
   }
 }
